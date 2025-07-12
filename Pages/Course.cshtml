@@ -1,0 +1,65 @@
+﻿@page
+@model Assignment.Pages.CourseModel
+
+<div class="container mt-5">
+    <h2 class="text-center">Available Courses</h2>
+
+    <!-- Display Add button only if the user is an admin -->
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <div class="mb-4 text-right">
+            <a href="/AddCourse" class="btn btn-success">Add New Course</a>
+        </div>
+    }
+
+    <div class="row">
+        @foreach (var course in Model.Courses)
+        {
+            <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">@course.CourseName</h5>
+                        <p class="card-text">Course Code: @course.CourseCode</p>
+                        <p class="card-text">Course Description: @course.CourseDescription</p>
+                        <p class="card-text">Tuition Fees: @course.TuitionFees.ToString("C")</p>
+                        <p class="card-text">Tuition Time: @course.TuitionTime</p>
+
+                        <div class="mt-auto">
+                            <!-- Parent Role: Register Child for the course -->
+                            @if (User.IsInRole("Parent"))
+                            {
+                                <form method="post" asp-page-handler="RegisterChild" class="mb-2">
+                                    <input type="hidden" name="SelectedCourseId" value="@course.CourseId" />
+                                    <button type="submit" class="btn btn-primary btn-block">Register Course Now</button>
+                                </form>
+                            }
+
+                            <!-- Teacher Role: Select course to teach -->
+                            @if (User.IsInRole("Teacher"))
+                            {
+                                <form method="post" asp-page-handler="SelectCourseToTeach" class="mb-2">
+                                    <input type="hidden" name="SelectedCourseId" value="@course.CourseId" />
+                                    <button type="submit" class="btn btn-info btn-block">Select to Teach</button>
+                                </form>
+                            }
+
+                            <!-- Admin Role: Show Edit and Delete buttons -->
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <div class="d-flex justify-content-between">
+                                    <a href="/EditCourse?id=@course.CourseId" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="/DeleteCourse?id=@course.CourseId" class="btn btn-danger btn-sm">Delete</a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Back Button -->
+    <div class="mt-4 text-center">
+        <a href="/" class="btn btn-secondary">Back to Homepage</a>
+    </div>
+</div>

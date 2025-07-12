@@ -1,0 +1,49 @@
+﻿@page
+@model Assignment.Pages.AddTeacherModel
+@{
+    ViewData["Title"] = "Add Teacher";
+}
+
+<h2>Add New Teacher</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Teacher.FullName"></label>
+        <input asp-for="Teacher.FullName" class="form-control" />
+        <span asp-validation-for="Teacher.FullName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Teacher.Subject"></label>
+        <input asp-for="Teacher.Subject" class="form-control" />
+        <span asp-validation-for="Teacher.Subject" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Teacher.Salary"></label>
+        <input asp-for="Teacher.Salary" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Teacher.Salary" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Teacher.JoiningDate"></label>
+        <input asp-for="Teacher.JoiningDate" class="form-control" type="date" />
+        <span asp-validation-for="Teacher.JoiningDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Teacher.TeacherDescription"></label>
+        <textarea asp-for="Teacher.TeacherDescription" class="form-control" rows="5"></textarea>
+        <span asp-validation-for="Teacher.TeacherDescription" class="text-danger"></span>
+    </div>
+
+    <!-- Email field -->
+    <div class="form-group">
+        <label asp-for="Teacher.Email"></label>
+        <input asp-for="Teacher.Email" class="form-control" />
+        <span asp-validation-for="Teacher.Email" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="./Teacher" class="btn btn-secondary">Cancel</a>
+</form>

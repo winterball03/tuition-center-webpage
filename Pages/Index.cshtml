@@ -1,0 +1,157 @@
+﻿@page
+@model IndexModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Home - Tuition Center";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Hero Section -->
+        <div class="jumbotron text-center hero-section bg-light rounded shadow-sm">
+            <img src="~/Assets/Logo.png" alt="Sunflower Tuition Center Logo" class="hero-logo mb-3">
+            <h1 class="display-4">Welcome to Sunflower Tuition Center</h1>
+            <p class="lead">Empowering Students to Achieve Academic Excellence</p>
+        </div>
+
+        <!-- Mission and Unique Approach Section -->
+        <div class="mission-section bg-white p-4 rounded shadow-sm mb-5">
+            <h2 class="text-center section-title">Sunflower Tuition Center: Nurturing Young Minds</h2>
+            <p class="text-center mb-4">Our Mission: At Sunflower Tuition Center, we are committed to providing personalized, nurturing education that empowers young minds to reach their full potential. We believe in fostering a supportive and engaging learning environment where students can thrive academically and socially.</p>
+
+            <!-- Add your image here -->
+            <div class="text-center mb-4">
+                <img src="~/Assets/MissionVisionpic.png" alt="Sunflower Tuition Center Mission" class="img-fluid" style="max-width: 100%; height: auto;">
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <h5 class="text-center">Experienced Tutors</h5>
+                    <p class="text-center">Our team of qualified and experienced tutors are passionate about education and dedicated to helping students succeed.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="text-center">Personalized Learning</h5>
+                    <p class="text-center">We tailor our teaching methods to meet the individual needs of each student, ensuring they receive the support they require.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="text-center">Small Class Sizes</h5>
+                    <p class="text-center">Our intimate class sizes allow for more personalized attention and effective peer interaction.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="text-center">Supportive Environment</h5>
+                    <p class="text-center">We create a welcoming and supportive atmosphere where students feel comfortable asking questions and exploring new ideas.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Featured Courses Section -->
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h2 class="text-center section-title">Featured Courses</h2>
+                <div class="row d-flex flex-wrap">
+                    @foreach (var course in Model.FeaturedCourses)
+                    {
+                        <div class="col-md-4 d-flex align-items-stretch">
+                            <div class="card mb-4 course-card shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">@course.CourseName</h5>
+                                    <p class="card-text">@course.CourseDescription</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="text-center mt-3">
+                    <a class="btn btn-primary btn-lg" href="/Course" role="button">View All Courses</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meet Our Teachers Section -->
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <!-- Group Photo Section -->
+                <div class="text-center mb-4">
+                    <img src="~/Assets/teachergroupphoto.jpeg" alt="Group Photo of Teachers" class="img-fluid rounded-circle shadow-sm">
+                </div>
+                <h2 class="text-center section-title">Meet Our Teachers</h2>
+                <!-- Teacher Information Section -->
+                <div class="row">
+                    @foreach (var teacher in Model.Teachers)
+                    {
+                        <div class="col-md-4 text-center teacher-info">
+                            <h5>@teacher.FullName</h5>
+                            <p>@teacher.TeacherDescription</p>
+                        </div>
+                    }
+                </div>
+                <div class="text-center mt-3">
+                    <a class="btn btn-primary btn-lg" href="/Teacher" role="button">View All Teachers</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our Facilities Section -->
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h2 class="text-center section-title">Our Facilities</h2>
+                <div class="row d-flex">
+                    <!-- Facility 1 -->
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="card mb-4 facility-card shadow-sm">
+                            <img class="card-img-top" src="~/Assets/StudyRoomPic.webp" alt="Study Room">
+                            <div class="card-body">
+                                <h5 class="card-title">Study Room</h5>
+                                <p class="card-text">Our study rooms are equipped with comfortable seating and ample natural light, providing a conducive environment for focused learning.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Facility 2 -->
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="card mb-4 facility-card shadow-sm">
+                            <img class="card-img-top" src="~/Assets/SmallGroupClasses.webp" alt="Small Group Classes">
+                            <div class="card-body">
+                                <h5 class="card-title">Small Group Classes</h5>
+                                <p class="card-text">Our small group classes allow for personalized attention and effective peer interaction.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Facility 3 -->
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="card mb-4 facility-card shadow-sm">
+                            <img class="card-img-top" src="~/Assets/ExperiencedTutors.webp" alt="Experienced Tutors">
+                            <div class="card-body">
+                                <h5 class="card-title">Experienced Tutors</h5>
+                                <p class="card-text">Our team of experienced tutors are passionate about education and dedicated to helping students achieve their academic goals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tawk.to Script -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/66e04dc3ea492f34bc109e27/1i7e2vhj3';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+</body>
+</html>

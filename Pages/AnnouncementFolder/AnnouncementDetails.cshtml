@@ -1,0 +1,40 @@
+﻿@page
+@model Assignment.Pages.AnnouncementFolder.AnnouncementDetailsModel
+@{
+    ViewData["Title"] = "Announcements";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">Announcements</h2>
+
+    @if (Model.Announcements.Any())
+    {
+        <div class="list-group">
+            @foreach (var announcement in Model.Announcements)
+            {
+                <div class="list-group-item">
+                    <h5>@announcement.Title</h5>
+                    <p>@announcement.Content</p>
+                    <small>Created on @announcement.DateCreated.ToString("f")</small>
+                    @if (User.IsInRole("Teacher") || User.IsInRole("Admin"))
+                    {
+                        <a asp-page="./EditAnnouncement" asp-route-id="@announcement.AnnouncementId" class="btn btn-warning btn-sm">Edit</a>
+                        <a asp-page="./DeleteAnnouncement" asp-route-id="@announcement.AnnouncementId" class="btn btn-danger btn-sm">Delete</a>
+                    }
+                </div>
+            }
+
+        </div>
+    }
+    else
+    {
+        <p>No announcements available.</p>
+    }
+
+    @if (User.IsInRole("Teacher") || User.IsInRole("Admin"))
+    {
+        <div class="text-center mt-4">
+            <a asp-page="./AddAnnouncement" class="btn btn-primary">Create Announcement</a>
+        </div>
+    }
+</div>

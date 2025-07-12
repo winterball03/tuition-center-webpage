@@ -1,0 +1,49 @@
+﻿@page
+@model Assignment.Pages.EditCourseModel
+@{
+    ViewData["Title"] = "Edit Course";
+}
+
+<h2>Edit Course</h2>
+
+<form method="post">
+    <!-- Hidden field for CourseId -->
+    <input type="hidden" asp-for="Course.CourseId" />
+
+    <div class="form-group">
+        <label asp-for="Course.CourseName"></label>
+        <input asp-for="Course.CourseName" class="form-control" />
+        <span asp-validation-for="Course.CourseName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Course.CourseCode"></label>
+        <input asp-for="Course.CourseCode" class="form-control" />
+        <span asp-validation-for="Course.CourseCode" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Course.CourseDescription"></label>
+        <input asp-for="Course.CourseDescription" class="form-control" />
+        <span asp-validation-for="Course.CourseDescription" class="text-danger"></span>
+    </div>
+
+    <!-- Updated: TuitionFees instead of Credits -->
+    <div class="form-group">
+        <label asp-for="Course.TuitionFees"></label>
+        <input asp-for="Course.TuitionFees" class="form-control" />
+        <span asp-validation-for="Course.TuitionFees" class="text-danger"></span>
+    </div>
+
+    <!-- Updated: TuitionTime instead of DepartmentId -->
+    <div class="form-group">
+        <label asp-for="Course.TuitionTime"></label>
+        <input asp-for="Course.TuitionTime" class="form-control" type="time" />
+        <span asp-validation-for="Course.TuitionTime" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="./Course" class="btn btn-secondary">Cancel</a>
+</form>
+
+

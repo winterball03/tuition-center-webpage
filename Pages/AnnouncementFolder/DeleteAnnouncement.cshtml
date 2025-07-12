@@ -1,0 +1,23 @@
+﻿@page
+@model Assignment.Pages.AnnouncementFolder.DeleteAnnouncementModel
+@{
+    ViewData["Title"] = "Delete Announcement";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">Delete Announcement</h2>
+
+    <div class="alert alert-warning">
+        <h4 class="alert-heading">Are you sure you want to delete this announcement?</h4>
+        <p><strong>Title:</strong> @Model.Announcement.Title</p>
+        <p><strong>Content:</strong> @Model.Announcement.Content</p>
+    </div>
+
+    <!-- Hidden field for AnnouncementId -->
+    <form method="post">
+        <input type="hidden" asp-for="Announcement.AnnouncementId" />
+
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-page="AnnouncementDetails" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

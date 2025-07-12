@@ -1,0 +1,119 @@
+﻿@page
+@model Assignment.Pages.Admin_HomepageModel
+@{
+    ViewData["Title"] = "Admin Home";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tuition Center</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <main role="main" class="container pb-3">
+        <h2>Welcome to the Admin Dashboard</h2>
+        <div>
+            <p>Here you can manage the application and view important statistics.</p>
+
+            <!-- Power BI Embedded Section -->
+            <iframe title="Sunflower Tuition Center" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=9b13e2fb-a59e-4493-a738-f9f0a4d26c25&autoAuth=true&ctid=4edf9354-0b3b-429a-bb8f-f21f957f1d1c" frameborder="0" allowFullScreen="true"></iframe>                
+        </div>
+        
+
+        <!-- Course Management Category -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h4>Course Management</h4>
+            </div>
+            <div class="card-body">
+                <p>Manage courses, add new courses, and edit existing ones.</p>
+                <ul class="list-unstyled">
+                    <li>Total Courses: <strong>@Model.TotalCourses</strong></li>
+                    <li>Average Tuition Fees: <strong>@Model.AverageTuitionFees.ToString("C")</strong></li>
+                </ul>
+                <a href="/Course" class="btn btn-primary">Go to Course Management</a>
+            </div>
+        </div>
+
+        <!-- Teacher Management Category -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h4>Teacher Management</h4>
+            </div>
+            <div class="card-body">
+                <p>Manage teachers, add new teachers, and edit existing ones.</p>
+
+                <!-- Teacher Statistics -->
+                <h5>Teacher Statistics</h5>
+                <ul class="list-unstyled">
+                    <li>Total Teachers: <strong>@Model.TotalTeachers</strong></li>
+                    <li>Average Teacher Salary: <strong>@Model.AverageTeacherSalary.ToString("C")</strong></li>
+                </ul>
+
+                <!-- Navigation to Teacher Management -->
+                <a href="/Teacher" class="btn btn-primary">Go to Teacher Management</a>
+            </div>
+        </div>
+
+        <!-- Student Management Category -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h4>Student Management</h4>
+            </div>
+            <div class="card-body">
+                <p>Manage students, view student information, and more.</p>
+
+                <!-- Student Statistics -->
+                <h5>Student Statistics</h5>
+                <ul class="list-unstyled">
+                    <li>Total Students: <strong>@Model.TotalStudents</strong></li>
+                </ul>
+
+                <!-- Navigation to Student Management -->
+                <a href="/Student" class="btn btn-primary">Go to Student Management</a>
+            </div>
+        </div>
+
+        <!-- Parent Management Category -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h4>Parent Management</h4>
+            </div>
+            <div class="card-body">
+                <p>Manage parents, view parent information, and more.</p>
+
+                <!-- Parent Statistics -->
+                <h5>Parent Statistics</h5>
+                <ul class="list-unstyled">
+                    <li>Total Parents: <strong>@Model.TotalParents</strong></li>
+                </ul>
+
+                <!-- Navigation to Parent Management -->
+                <a href="/Parent" class="btn btn-primary">Go to Parent Management</a>
+            </div>
+        </div>
+
+        <!-- Class Management Category -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h4>Class Management</h4>
+            </div>
+            <div class="card-body">
+                <p>Manage tuition classes, view class information, and more.</p>
+
+                <!-- Navigation to Class Management -->
+                <a href="/TuitionClassFolder/TuitionClassesList" class="btn btn-primary">Go to Class Management</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    </main>
+</body>
+</html>

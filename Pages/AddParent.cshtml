@@ -1,0 +1,36 @@
+﻿@page
+@model Assignment.Pages.AddParentModel
+
+<div class="container mt-5">
+    <h2 class="text-center">Add New Parent</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" class="form-control" id="fullName" name="FullName" required />
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="Email" required />
+        </div>
+
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" class="form-control" id="phoneNumber" name="PhoneNumber" required />
+        </div>
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="Username" required />
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="Password" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="/Parent" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

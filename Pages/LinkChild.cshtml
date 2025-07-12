@@ -1,0 +1,57 @@
+﻿@page
+@model Assignment.Pages.LinkChildModel
+
+@{
+    ViewData["Title"] = "Link Child";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4 mb-5 bg-white rounded">
+        <div class="card-body">
+            <h2 class="text-center">Link Your Child</h2>
+
+            <!-- Search Form -->
+            <form method="get" class="mt-3">
+                <input type="text" asp-for="SearchTerm" class="form-control" placeholder="Search for a student..." />
+                <button type="submit" class="btn btn-primary mt-3">Search</button>
+            </form>
+
+            <!-- Show the list of students matching the search -->
+            @if (Model.Students != null && Model.Students.Count > 0)
+            {
+                <table class="table table-striped mt-4">
+                    <thead>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var student in Model.Students)
+                        {
+                            <tr>
+                                <td>@student.FullName</td>
+                                <td>@student.Email</td>
+                                <td>
+                                    <form method="post">
+                                        <input type="hidden" asp-for="SelectedStudentId" value="@student.StudentId" />
+                                        <button type="submit" class="btn btn-success">Link as My Child</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else if (!string.IsNullOrEmpty(Model.SearchTerm))
+            {
+                <p>No students found for "@Model.SearchTerm".</p>
+            }
+
+            <!-- Back to My Children Button -->
+            <a asp-page="/Child" class="btn btn-secondary mt-4">Back to My Children</a>
+        </div>
+    </div>
+</div>
+
