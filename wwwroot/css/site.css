@@ -1,0 +1,232 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-body {
+    flex-grow: 1;
+}
+
+/* site.css */
+
+/* Background Color */
+body {
+    background-color: #f5f5dc; /* Soft beige background */
+    color: #333; /* Dark text color for readability */
+    font-family: Arial, sans-serif; /* Clean and professional font */
+}
+
+/* Hero Section */
+.hero-section {
+    background: #f8f9fa; /* Light background for the jumbotron */
+    border-radius: 10px; /* Rounded corners */
+    padding: 2rem; /* Add padding */
+    margin-bottom: 2rem; /* Space below the jumbotron */
+}
+
+.hero-logo {
+    width: 100px; /* Size of the logo */
+    height: 100px; /* Size of the logo */
+    border-radius: 50%; /* Round edges */
+    object-fit: cover; /* Ensure logo covers the space without distortion */
+    margin-bottom: 1rem; /* Space below the logo */
+}
+
+/* Section Title */
+.section-title {
+    font-size: 2rem; /* Increase font size */
+    font-weight: bold; /* Bold text */
+    color: #343a40; /* Darker color for contrast */
+    margin-bottom: 1.5rem; /* Space below section title */
+}
+
+/* Card Styles */
+.card {
+    border: none; /* Remove default border */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.card-img-top {
+    border-radius: 10px 10px 0 0; /* Rounded top corners */
+}
+
+/* Only apply to h5 inside cards (Featured Courses, Teachers, Facilities) */
+.card h5 {
+    color: #8e735b; /* Dark brown */
+    font-size: 1.5rem; /* Bigger font size */
+    font-weight: bold; /* Make text bold */
+}
+
+
+.course-card, .facility-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+/* Button Styles */
+.btn-view-all {
+    padding: 0.75rem 1.5rem; /* Adjust padding */
+}
+
+/* Teacher Info */
+.teacher-info {
+    margin-bottom: 1.5rem; /* Space below each teacher */
+}
+
+
+/* Button View All */
+.btn-view-all {
+    background-color: #8e735b; /* Brownish beige button color */
+    border-color: #8e735b;
+}
+
+    .btn-view-all:hover {
+        background-color: #6f5b47; /* Darker brownish color on hover */
+        border-color: #6f5b47;
+    }
+
+/* Responsive Images */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #3c3c3c; /* Darker background for a formal look */
+    padding: 0.5rem 1rem; /* Adjust padding for the navbar */
+    border-bottom: 2px solid #f0f0f0; /* Light border for a clean look */
+}
+
+.navbar-brand {
+    color: #f8f9fa; /* Light color for the brand name */
+    font-weight: bold; /* Make the brand name bold */
+    font-size: 1.5rem; /* Increase font size for prominence */
+}
+
+.navbar-nav .nav-link {
+    color: #f8f9fa; /* Light color for links */
+    font-size: 1rem; /* Standard font size for links */
+}
+
+    .navbar-nav .nav-link:hover {
+        color: #ffd700; /* Highlight color on hover */
+    }
+
+.navbar-nav .nav-item {
+    margin-left: 1rem; /* Space between nav items */
+}
+
+    .navbar-nav .nav-item p {
+        margin-bottom: 0; /* Remove bottom margin from paragraph */
+        color: #f8f9fa; /* Color for logged-in status text */
+    }
+
+    .navbar-nav .nav-item a {
+        color: #f8f9fa; /* Color for links */
+        text-decoration: none; /* Remove underline */
+    }
+
+        .navbar-nav .nav-item a:hover {
+            color: #ffd700; /* Highlight color on hover */
+        }
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.2rem; /* Adjust font size on smaller screens */
+    }
+
+    .navbar-nav {
+        text-align: center; /* Center-align items on smaller screens */
+    }
+}
+
+/*Course page*/
+/* Ensure all cards are the same height */
+.card {
+    height: 100%; /* Make sure all cards take the full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+
+/* Make card buttons uniformly spaced */
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    .card-body .btn {
+        margin-top: 10px; /* Add space between the buttons */
+        width: 100%; /* Full-width buttons */
+    }
+
+/* Improve the button's focus and hover effects */
+.btn:focus, .btn:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15), 0 0 0 0.25rem #258cfb; /* Add subtle shadow and focus border */
+    outline: none; /* Remove default focus outline */
+}
+
+/* Card hover effect for a professional feel */
+.card:hover {
+    transform: translateY(-5px); /* Subtle lift effect on hover */
+    transition: transform 0.3s ease;
+}
+
+/* Adjust spacing between multiple buttons inside a card */
+.card-body .d-flex .btn {
+    margin-right: 8px; /* Space between edit/delete buttons */
+}
+
+/* Ensure text alignment inside the cards is consistent */
+.card-title, .card-text {
+    margin-bottom: 0.5rem; /* Adjust space between text elements */
+    color: #333; /* Ensure consistent text color */
+}
+
+/* Ensure form buttons are consistently spaced */
+.form-inline .btn {
+    margin-right: 10px; /* Consistent spacing between inline buttons */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px; /* Add more space between cards on small screens */
+    }
+
+    .card-body .btn {
+        margin-top: 8px; /* Reduce top margin for smaller screens */
+    }
+
+    .navbar-nav .nav-item {
+        margin-left: 0; /* Remove left margin on smaller screens */
+        margin-bottom: 10px; /* Add space between nav items */
+    }
+}
